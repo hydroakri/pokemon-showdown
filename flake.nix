@@ -2,7 +2,11 @@
   description = "A Nix-flake-based Node.js development environment";
 
   inputs = {
-    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1"; # unstable Nixpkgs
+    # Pinned directly to github: rather than flakehub.com -- flakehub's IPv6
+    # endpoint has been unreachable on this network; github/cache.nixos.org
+    # work fine. Same revision already used by the other flakes in this
+    # project.
+    nixpkgs.url = "github:NixOS/nixpkgs/e2587caef70cea85dd97d7daab492899902dbf5d";
     nixpkgs-node.url = "github:NixOS/nixpkgs/080a4a27f206d07724b88da096e27ef63401a504"; # nodejs_18 == 18.19.1
     nixpkgs-npm.url = "github:NixOS/nixpkgs/2d38b664b4400335086a713a0036aafaa002c003"; # nodePackages.npm == 9.2.0
   };
